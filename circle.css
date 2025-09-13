@@ -1,0 +1,110 @@
+/* General styles */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center,
+    rgba(200, 255, 220, 0.6) 0%,
+    rgba(240, 210, 255, 0.5) 50%,
+    rgba(255, 200, 200, 0.4) 100%);
+  font-family: Arial, sans-serif;
+}
+
+/* Container holding everything */
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Circle container */
+.circle {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 2px dashed rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Center text */
+.center-text h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Circle items */
+.item {
+  position: absolute;
+  text-align: center;
+  font-size: 0.9rem;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+}
+
+.item span {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.strategy {
+  top: 15%;
+  right: 20%;
+}
+
+.development {
+  left: 5%;
+  top: 50%;
+}
+
+.design {
+  bottom: 10%;
+  right: 15%;
+}
+
+/* Connector line to Launch */
+.connector {
+  position: absolute;
+  right: -20%;
+  top: 50%;
+  width: 40%;
+  border-top: 2px dashed rgba(0, 0, 0, 0.3);
+}
+
+/* Launch section */
+.launch {
+  background: white;
+  border-radius: 50%;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.launch p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .circle {
+    width: 220px;
+    height: 220px;
+  }
+  .connector {
+    display: none;
+  }
+}
