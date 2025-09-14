@@ -967,6 +967,10 @@ button{
         transform: rotate(0deg) !important;
       }
 
+      #features{
+        padding: 70px 30px;
+      }
+
 
 
 #work {
