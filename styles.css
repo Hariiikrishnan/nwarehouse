@@ -25,7 +25,9 @@ body{
 button{
 
 }
-
+a{
+  text-decoration: none;
+}
 /* Base Navbar Styles */
 #nav {
     position: fixed;
@@ -199,18 +201,28 @@ button{
     font-size: 3rem;
 }
 #hero .wrapper .cont p{
-    font-size: 20px
+    font-size: 20px;
+    margin-bottom:30px;
 }
-#hero .wrapper .cont button{
-    height: 50px;
+#hero .wrapper .cont a{
     border: solid var(--secondColor) 1px;
     border-radius: 8px;
-    width: 200px;
+    width: 250px;
     font-size: 18px;
+    margin: 10px ;
+    text-decoration: none;
+    padding: 10px 40px;
+
 }
 #hero .wrapper .cont .greenBtn{
     background-color: var(--secondColor);
     color: white;
+    transition: 0.28s;
+}
+#hero .wrapper .cont .whiteBtn{
+    transition: 0.28s;
+    color: #000;
+    background-color: white;
 }
 #hero .wrapper .cont h1 span{
     color: var(--secondColor);
@@ -220,6 +232,13 @@ button{
     border-radius: 28px;
      box-shadow: 5px 3px 20px #000000b8;
      height: 300px;
+}
+#hero .wrapper .greenBtn:hover{
+ background-color: #0d8821;
+}
+#hero .wrapper .whiteBtn:hover{
+ background-color:#0404043c;
+ color: white;
 }
 
 
