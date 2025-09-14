@@ -204,10 +204,14 @@ a{
     font-size: 20px;
     margin-bottom:30px;
 }
+#hero .wrapper .btns{
+  display: flex;
+  flex-wrap: wrap;
+}
 #hero .wrapper .cont a{
     border: solid var(--secondColor) 1px;
     border-radius: 8px;
-    width: 250px;
+    /* width: 250px; */
     font-size: 18px;
     margin: 10px ;
     text-decoration: none;
