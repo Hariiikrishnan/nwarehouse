@@ -510,6 +510,7 @@ section#mission-vision > .wrapper > .container .circle .eng{
   font-weight: bolder;
 }
 section#mission-vision > .wrapper > .container .circle .tam{
+  color: grey;
   font-style: italic;
   font-weight: bolder;
 }
