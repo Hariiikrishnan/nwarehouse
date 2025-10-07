@@ -311,8 +311,229 @@ a{
 
 
 
+/* Section styling */
+section#mission-vision {
+  background: #f9f9f9;
+  padding: 80px 0;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+}
+
+/* Wrapper */
+section#mission-vision > .wrapper {
+  text-align: center;
+}
+
+/* Title */
+section#mission-vision > .wrapper > .title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 60px;
+  position: relative;
+  display: inline-block;
+}
+
+section#mission-vision > .wrapper > .title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primColor), var(--secondColor));
+  margin: 8px auto 0;
+  border-radius: 3px;
+}
+
+/* Container for circles */
+section#mission-vision > .wrapper > .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  position: relative;
+}
+
+/* Base circle design */
+section#mission-vision > .wrapper > .container > .circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 50px;
+  transition: transform 0.3s ease;
+}
+
+section#mission-vision > .wrapper > .container > .circle:hover {
+  transform: translateY(-8px);
+}
+
+/* Icon */
+section#mission-vision > .wrapper > .container > .circle .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Text inside circles */
+section#mission-vision > .wrapper > .container > .circle h1 {
+  font-size: 1.1rem;
+  margin: 6px 0;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 25px;
+}
+
+section#mission-vision > .wrapper > .container > .circle p {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+/* Mission circle color */
+section#mission-vision > .wrapper > .container > .mission h1 {
+  background: var(--primColor);
+}
+
+/* Vision circle color */
+section#mission-vision > .wrapper > .container > .vision h1 {
+  background: var(--secondColor);
+}
+
+/* Half border for MISSION (top half arc) */
+section#mission-vision > .wrapper > .container > .mission::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  /* left: -10px; */
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border-top: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transform: rotate(45deg);
+  transition: all 0.4s linear;
+}
+
+section#mission-vision > .wrapper > .container {
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+
+/* Your rotating border */
+section#mission-vision > .wrapper > .container > .vision::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border-top: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transform: scale(-1, 1) rotate(45deg);
+  transition: transform 0.8s linear, border-color 0.4s linear;
+  z-index: 1;
+}
+
+/* Hover animation */
+section#mission-vision > .wrapper > .container:hover > .vision::before {
+  transform: scale(-1, 1) rotate(227deg);
+  border-top: 4px solid #ff5722;
+  border-left: 4px solid #ff5722;
+  transition-delay: 0.45s;
+}
+
+/* The masking (white) half-circle overlay */
+/* section#mission-vision > .wrapper > .container  > .vision::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 170px; 
+  background: #fff;
+  border-top-left-radius: 170px;
+  border-top-right-radius: 170px;
+  z-index: 2; 
+  pointer-events: none; 
+} */
 
 
+
+section#mission-vision > .wrapper > .container:hover > .mission::before {
+  
+  border-bottom: 4px solid var(--secondColor);
+  border-right: 4px solid var(--secondColor);
+  transform: rotate(226deg);
+}
+
+/* Base state */
+section#mission-vision > .wrapper > .container > .vision::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border-bottom: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-top: 4px solid transparent;
+  transform: scale(-1, 1) rotate(45deg);
+  transition: transform 0.4s linear, border-color 0.35s linear;
+  /* no delay here — for smooth return */
+}
+
+/* Hover state */
+section#mission-vision > .wrapper > .container:hover > .vision::before {
+  transform: scale(-1, 1) rotate(226deg);
+  border-top: 4px solid var(--primColor);
+  border-left: 4px solid var(--primColor);
+  transition-delay: 0.35s; /* delay only applies on hover in */
+}
+
+
+section#mission-vision > .wrapper > .container .circle .eng{
+  font-style:normal;
+  font-size: 16px;
+  font-weight: bolder;
+}
+section#mission-vision > .wrapper > .container .circle .tam{
+  font-style: italic;
+  font-weight: bolder;
+}
+
+/* Use keyframes for the 360 → 227 jump */
+/* @keyframes rotateWrap {
+  0% { 
+    transform: rotate(360deg);
+   }
+  100% { 
+       border-top: 4px solid --primColor;
+  border-left: 4px solid --primColor;
+    transform: rotate(227deg); 
+  }
+} */
+
+/* section#mission-vision > .wrapper > .container:hover > .vision::after {
+  content: "";
+  position: absolute;
+  width: 0; height: 0;
+  animation: rotateWrap 0.4s linear 0.45s; 
+
+  animation-direction: reverse; 
+} */
 
 
 
@@ -981,6 +1202,42 @@ a{
   padding: 10px 0;
 }
 
+
+#mission-vision > .wrapper > .container{
+  flex-direction: column;
+  gap: 13px!important;
+}
+
+
+section#mission-vision > .wrapper > .container > .mission::before {
+  transform: scale(1, 1) rotate(312deg);
+
+}
+section#mission-vision > .wrapper > .container:hover > .mission::before {
+  transform: scale(1, 1) rotate(136deg);
+  border-bottom: 4px solid var(--secondColor);
+  border-right: 4px solid var(--secondColor);
+/* delay only applies on hover in */
+}
+
+section#mission-vision > .wrapper > .container > .vision::before {
+  transform: scale(1, -1) rotate(350deg);
+  transition: all 0.2s linear;
+
+}
+section#mission-vision > .wrapper > .container:hover > .vision::before {
+  transform: scale(1, -1) rotate(136deg);
+  border-top: 4px solid var(--primColor);
+  border-left: 4px solid var(--primColor);
+  transition-delay: 0.35s; /* delay only applies on hover in */
+}
+section#mission-vision > .wrapper > .container > .circle:hover{
+  transform: none;
+}
+
+
+
+
      #products .container {
         flex-direction: column;
         max-width: 300px;
@@ -1015,9 +1272,12 @@ a{
   bottom: 30%;
   right: -30%;
 }
-.circle {
+#work .circle {
     height: 300px;
     width: 300px;
 }
+
+
+
     }
 

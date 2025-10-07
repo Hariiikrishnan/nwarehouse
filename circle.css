@@ -1,110 +1,128 @@
-/* General styles */
-body {
-  margin: 0;
+/* ---------- base layout (your existing styles) ---------- */
+section#mission-vision {
+  background: #f9f9f9;
+  padding: 80px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: radial-gradient(circle at center,
-    rgba(200, 255, 220, 0.6) 0%,
-    rgba(240, 210, 255, 0.5) 50%,
-    rgba(255, 200, 200, 0.4) 100%);
-  font-family: Arial, sans-serif;
 }
 
-/* Container holding everything */
-.container {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
+section#mission-vision > .wrapper { text-align: center; }
 
-/* Circle container */
-.circle {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border: 2px dashed rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-/* Center text */
-.center-text h2 {
-  text-align: center;
-  font-size: 1.5rem;
+section#mission-vision > .wrapper > .title {
+  font-size: 1.8rem;
   font-weight: 700;
+  color: #333;
+  margin-bottom: 60px;
+  display: inline-block;
+}
+section#mission-vision > .wrapper > .title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #ff5722, #2196f3);
+  margin: 8px auto 0;
+  border-radius: 3px;
 }
 
-/* Circle items */
-.item {
-  position: absolute;
-  text-align: center;
-  font-size: 0.9rem;
-  transform: translate(-50%, -50%);
+section#mission-vision > .wrapper > .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+/* circle card */
+section#mission-vision > .wrapper > .container > .circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  font-weight: 500;
+  position: relative;
+  padding: 50px;
+  transition: transform 0.3s ease;
+  overflow: visible; /* allow SVG to overflow */
+}
+section#mission-vision > .wrapper > .container > .circle:hover {
+  transform: translateY(-8px);
 }
 
-.item span {
-  font-size: 1.5rem;
-  margin-bottom: 0.3rem;
+section#mission-vision > .wrapper > .container > .circle .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+section#mission-vision > .wrapper > .container > .circle h1 {
+  font-size: 1.1rem;
+  margin: 6px 0;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 25px;
+}
+section#mission-vision > .wrapper > .container > .circle p {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 8px 0 0;
+  line-height: 1.4;
 }
 
-.strategy {
-  top: 15%;
-  right: 20%;
-}
+section#mission-vision > .wrapper > .container > .mission h1 { background: #ff5722; }
+section#mission-vision > .wrapper > .container > .vision h1  { background: #2196f3; }
 
-.development {
-  left: 5%;
-  top: 50%;
-}
-
-.design {
-  bottom: 10%;
-  right: 15%;
-}
-
-/* Connector line to Launch */
-.connector {
+/* ---------- SVG arc overlay styles (new) ---------- */
+/* position SVG exactly where your old ::before was */
+section#mission-vision > .wrapper > .container > .circle.mission .arc {
   position: absolute;
-  right: -20%;
-  top: 50%;
-  width: 40%;
-  border-top: 2px dashed rgba(0, 0, 0, 0.3);
+  top: -15px;    /* match earlier placement */
+  /* left: -10px; */
+  width: 340px;
+  height: 340px;
+  overflow: visible;
+  transform: rotate(317deg);
+  pointer-events: none; /* don't block hover */
+}
+section#mission-vision > .wrapper > .container > .circle.vision .arc {
+  position: absolute;
+  top: -15px;    /* match earlier placement */
+  /* left: -10px; */
+  width: 340px;
+  height: 340px;
+  overflow: visible;
+  transform: rotate(130deg);
+  pointer-events: none; /* don't block hover */
 }
 
-/* Launch section */
-.launch {
-  background: white;
-  border-radius: 50%;
-  padding: 1.5rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-size: 1.5rem;
-  flex-shrink: 0;
+
+/* stroke-dash values based on r = 160:
+   circumference ≈ 2πr ≈ 1005.31
+   half ≈ 502.65  (we use these exact numeric constants for CSS) */
+.arc-path {
+  stroke-linecap: round;
+  stroke-dasharray: 502.65 502.65;    /* show half, hide half */
+  stroke-dashoffset: 502.65;         /* hidden initially */
+  transition: stroke-dashoffset 1s ease-in-out ,  1s ease-in-out;
 }
 
-.launch p {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: bold;
+/* colors */
+.arc-path.mission-path { stroke: transparent; }
+.arc-path.vision-path  { stroke: #2196f3; }
+
+/* Trigger both animations when the container is hovered.
+   Hovering a child circle counts as hovering the container */
+section#mission-vision > .wrapper > .container:hover .arc-path {
+  color: #ff5722;
+  stroke-dashoffset: 0; /* draw half-arc from left → right */
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-  .circle {
-    width: 220px;
-    height: 220px;
-  }
-  .connector {
-    display: none;
-  }
+/* optional: give slight stagger if you want (remove if you want them simultaneous) */
+section#mission-vision > .wrapper > .container:hover .vision .arc-path {
+  transition-delay: 0.06s;
+}
+section#mission-vision > .wrapper > .container:hover .mission .arc-path {
+  transition-delay: 0s;
 }
