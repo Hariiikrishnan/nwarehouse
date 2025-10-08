@@ -425,8 +425,7 @@ section#mission-vision > .wrapper > .container > .mission::before {
 
 section#mission-vision > .wrapper > .container {
   position: relative;
-  width: 340px;
-  height: 340px;
+
 }
 
 /* Your rotating border */
