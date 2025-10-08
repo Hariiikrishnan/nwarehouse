@@ -1223,7 +1223,7 @@ section#mission-vision > .wrapper > .container:hover > .mission::before {
 
 section#mission-vision > .wrapper > .container > .vision::before {
   transform: scale(1, -1) rotate(350deg);
-  transition: all 0.2s linear;
+  transition: all 0.3s linear;
 
 }
 section#mission-vision > .wrapper > .container:hover > .vision::before {
