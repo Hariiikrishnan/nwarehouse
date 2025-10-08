@@ -1,128 +1,71 @@
-/* ---------- base layout (your existing styles) ---------- */
 section#mission-vision {
-  background: #f9f9f9;
-  padding: 80px 0;
-  display: flex;
-  justify-content: center;
-}
-
-section#mission-vision > .wrapper { text-align: center; }
-
-section#mission-vision > .wrapper > .title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 60px;
-  display: inline-block;
-}
-section#mission-vision > .wrapper > .title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(to right, #ff5722, #2196f3);
-  margin: 8px auto 0;
-  border-radius: 3px;
-}
-
-section#mission-vision > .wrapper > .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+/* Container setup */
+.wrapper {
   position: relative;
 }
 
-/* circle card */
-section#mission-vision > .wrapper > .container > .circle {
-  width: 220px;
-  height: 220px;
+.container {
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+
+/* Vision main circle */
+.vision {
+  position: relative;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+/* Arc border (animated) */
+.vision::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  transform: scale(-1, 1) rotate(45deg);
+  transition: transform 0.8s linear, border-color 0.4s linear;
+  z-index: 0;
+}
+
+.container:hover .vision::before {
+  border-top: 4px solid #ff5722;
+  border-left: 4px solid #ff5722;
+  transform: scale(-1, 1) rotate(227deg);
+  transition-delay: 0.45s;
+}
+
+/* White mask to hide top half of border only */
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #fff;
+  z-index: 1; /* above border, below text */
+}
+
+/* Content */
+.content {
   position: relative;
-  padding: 50px;
-  transition: transform 0.3s ease;
-  overflow: visible; /* allow SVG to overflow */
-}
-section#mission-vision > .wrapper > .container > .circle:hover {
-  transform: translateY(-8px);
-}
-
-section#mission-vision > .wrapper > .container > .circle .icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-section#mission-vision > .wrapper > .container > .circle h1 {
-  font-size: 1.1rem;
-  margin: 6px 0;
-  color: white;
-  padding: 6px 18px;
-  border-radius: 25px;
-}
-section#mission-vision > .wrapper > .container > .circle p {
-  color: #555;
-  font-size: 0.9rem;
-  margin: 8px 0 0;
-  line-height: 1.4;
-}
-
-section#mission-vision > .wrapper > .container > .mission h1 { background: #ff5722; }
-section#mission-vision > .wrapper > .container > .vision h1  { background: #2196f3; }
-
-/* ---------- SVG arc overlay styles (new) ---------- */
-/* position SVG exactly where your old ::before was */
-section#mission-vision > .wrapper > .container > .circle.mission .arc {
-  position: absolute;
-  top: -15px;    /* match earlier placement */
-  /* left: -10px; */
-  width: 340px;
-  height: 340px;
-  overflow: visible;
-  transform: rotate(317deg);
-  pointer-events: none; /* don't block hover */
-}
-section#mission-vision > .wrapper > .container > .circle.vision .arc {
-  position: absolute;
-  top: -15px;    /* match earlier placement */
-  /* left: -10px; */
-  width: 340px;
-  height: 340px;
-  overflow: visible;
-  transform: rotate(130deg);
-  pointer-events: none; /* don't block hover */
-}
-
-
-/* stroke-dash values based on r = 160:
-   circumference ≈ 2πr ≈ 1005.31
-   half ≈ 502.65  (we use these exact numeric constants for CSS) */
-.arc-path {
-  stroke-linecap: round;
-  stroke-dasharray: 502.65 502.65;    /* show half, hide half */
-  stroke-dashoffset: 502.65;         /* hidden initially */
-  transition: stroke-dashoffset 1s ease-in-out ,  1s ease-in-out;
-}
-
-/* colors */
-.arc-path.mission-path { stroke: transparent; }
-.arc-path.vision-path  { stroke: #2196f3; }
-
-/* Trigger both animations when the container is hovered.
-   Hovering a child circle counts as hovering the container */
-section#mission-vision > .wrapper > .container:hover .arc-path {
-  color: #ff5722;
-  stroke-dashoffset: 0; /* draw half-arc from left → right */
-}
-
-/* optional: give slight stagger if you want (remove if you want them simultaneous) */
-section#mission-vision > .wrapper > .container:hover .vision .arc-path {
-  transition-delay: 0.06s;
-}
-section#mission-vision > .wrapper > .container:hover .mission .arc-path {
-  transition-delay: 0s;
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
 }

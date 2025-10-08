@@ -515,6 +515,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
   font-weight: bolder;
 }
 
+
 /* Use keyframes for the 360 → 227 jump */
 /* @keyframes rotateWrap {
   0% { 
@@ -832,7 +833,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
   width: 100%;
   height: 400px; 
   padding: 70px 0;
-  background-image: url('images/work.png');
+  background-image: url('images/work.jpg');
   background-size: cover;
   background-position: center;
 }
