@@ -570,7 +570,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
   height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
 }
@@ -1408,6 +1408,17 @@ section#mission-vision > .wrapper > .container > .circle:hover{
     width: 300px;
 }
 
+#topselling .title{
+  margin-top: 10px;
+}
+
+#topselling .wrapper .content h1{
+  font-size: 2.5rem;
+}
+
+#topselling .wrapper .photos img{
+  height: 200px;
+}
 
 
     }
