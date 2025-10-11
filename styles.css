@@ -1,13 +1,23 @@
 
 :root {
-  --primColor: #f7c42b; 
-  --secondColor: #12ad2b; 
+  --primColor: #c1fa50; 
+  --secondColor: #1ea600; 
 }
 
 /* Color 1 : #f7c42b; */
 /* Color 2 : #12ad2b; */
 
 
+
+/* Font classes */
+
+.signature {
+  font-family: "Carattere", cursive;
+  /* font-optical-sizing: auto; */
+  font-weight: 400;
+  font-size: 2rem;
+  font-style: normal;
+}
 
 
 
@@ -199,9 +209,11 @@ a{
 }
 #hero .wrapper .cont h1{
     font-size: 3rem;
+    color: rgb(62, 62, 62);
 }
 #hero .wrapper .cont p{
     font-size: 20px;
+    color: #262626;
     margin-bottom:30px;
 }
 #hero .wrapper .btns{
@@ -228,9 +240,13 @@ a{
     color: #000;
     background-color: white;
 }
-#hero .wrapper .cont h1 span{
+#hero .wrapper .cont h1 .sub{
     color: var(--secondColor);
     padding: 0 10px;
+}
+#hero .wrapper .cont h1 .appaus{
+    font-style: italic;
+    color: #797979;
 }
 #hero .wrapper .banner img{
     border-radius: 28px;
@@ -273,7 +289,8 @@ a{
 
 
 #about{
-  background-color: rgba(235, 235, 235, 0.81);
+  /* background-color: rgba(235, 235, 235, 0.81); */
+  background-color: white;
 }
 
 #about .wrapper{
@@ -295,7 +312,7 @@ a{
 
 
 #about .wrapper .content{
-  color: var(--primColor);
+  color: #1ea600;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -303,17 +320,19 @@ a{
 }
 #about .wrapper .content h2{
   font-size: 2rem;
+  margin-bottom: 10px;
 }
 #about .wrapper .content p{
   text-align: start;
-  color: black;
+  color: rgb(84, 84, 84);
+  font-size: 1.5rem;
 }
 
 
 
 /* Section styling */
 section#mission-vision {
-  background: #f9f9f9;
+  background: rgba(235, 235, 235, 0.81);
   padding: 80px 0;
   display: flex;
   overflow: hidden;
@@ -539,6 +558,116 @@ section#mission-vision > .wrapper > .container .circle .tam{
 
 
 
+
+
+
+
+
+
+#topselling{
+  padding: 30px;
+  background-color: #363535;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#topselling .wrapper{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#topselling  .title{
+  font-size: 3.5rem;
+  margin: 20px 0;
+}
+#topselling .wrapper .content {
+  position: absolute;
+  
+}
+#topselling .wrapper .content h1{
+  font-size: 4rem;
+}
+#topselling .wrapper .content .up{
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+#topselling .photos{
+  z-index: 9;
+}
+#topselling .wrapper img{
+  height: 400px;
+}
+#topselling .wrapper img:first-child{
+  transform: rotate3d(1, 1, 1, 319deg);
+  animation: moveRight 1.4s ease-in-out;
+}
+#topselling .wrapper img:nth-child(2){
+  transform: rotateZ(200deg);
+  animation: moveLeft 1.4s ease-in-out;
+}
+
+
+#topselling a{
+  color: white;
+   margin: 20px 0;
+    border: solid white 2px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    font-weight: 600;
+    font-size: 18px;
+    justify-content: space-evenly;
+    border-radius: 30px;
+    transition: all 0.2s linear;
+}
+#topselling a:hover{
+  background-color: white;
+  color:  #363535;
+}
+
+
+
+
+@keyframes moveRight {
+  0% {
+    transform: scale(0) translateX(-200%) rotate3d(1, 1, 1, 319deg) ;
+  }
+  75%{
+    transform:  scale(1.2) translateX(0%) rotate3d(1, 1, 1, 319deg);
+  }
+  100% {
+    transform:  scale(1) translateX(0) rotate3d(1, 1, 1, 319deg);
+  }
+}
+@keyframes moveLeft {
+  0% {
+    transform: scale(0) translateX(+200%) rotateZ(200deg) ;
+  }
+  75% {
+    transform: scale(1.2) translateX(0) rotateZ(200deg);
+  }
+  100% {
+    transform: scale(1) translateX(0) rotateZ(200deg);
+  }
+}
+
+
+
+
+
+
+
+
 #products{
       padding: 40px;
       
@@ -554,7 +683,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
 #products h1{
     font-size: 3rem;
     margin: 20px;
-    color: white;
+    color: black;
 }
 
  /* Container */
@@ -1080,11 +1209,11 @@ section#mission-vision > .wrapper > .container .circle .tam{
 
 /* Footer Section */
 #footer {
-  background: var(--secondColor);
+  background: var(--primColor);
   padding: 2rem 1rem 1rem;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: black;
 }
 
 
@@ -1120,7 +1249,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
 
 .footer-column a {
   display: block;
-  color: #d9f1e0;
+  color: black;
   text-decoration: none;
   margin: 0.3rem 0;
   transition: color 0.2s ease;
@@ -1134,7 +1263,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
   text-align: center;
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: white;
+  color: black;
   border-top: 1px solid #145c31;
   padding-top: 1rem;
 }
@@ -1201,6 +1330,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
 }
 #about .wrapper .content p{
   padding: 10px 0;
+  
 }
 
 
