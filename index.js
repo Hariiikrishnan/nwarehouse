@@ -46,3 +46,6 @@ var element8 = document.querySelectorAll(".element");
 element8.forEach(element =>{
   observer.observe(element);
 })
+
+
+console.log("added");
