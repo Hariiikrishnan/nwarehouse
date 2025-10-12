@@ -44,8 +44,7 @@ let observer = new IntersectionObserver(updates => {
 var element8 = document.querySelectorAll(".element");
 
 element8.forEach(element =>{
+    console.log(element.id);
   observer.observe(element);
 })
 
-
-console.log("added");
