@@ -39,7 +39,7 @@ let observer = new IntersectionObserver(updates => {
       //     update.target.classList.remove('visible');
       // }
   });
-}, { threshold: 0.5 });
+}, { threshold: [0.25,0.5] });
 
 var element8 = document.querySelectorAll(".element");
 
