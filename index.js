@@ -23,3 +23,26 @@ links.forEach(link => {
         navLinks.classList.remove('active');
     });
 });
+
+
+
+
+
+
+let observer = new IntersectionObserver(updates => {
+  updates.forEach(update => {
+    // console.log(update)
+      if (update.isIntersecting) {
+          update.target.classList.add('visible');
+      }
+      //  else {
+      //     update.target.classList.remove('visible');
+      // }
+  });
+}, { threshold: 0.5 });
+
+var element8 = document.querySelectorAll(".element");
+
+element8.forEach(element =>{
+  observer.observe(element);
+})
