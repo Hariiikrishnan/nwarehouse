@@ -197,11 +197,18 @@ a{
 }
 
 #hero .wrapper{
-    padding: 140px 100px 70px 100px;
+    padding: 140px 60px 70px 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+}
+#hero .wrapper .banner{
+  flex: 1;
+}
+
+#hero .wrapper .cont{
+  flex: 3;
 }
 #hero .wrapper .cont,#hero .wrapper .banner{
     padding: 20px;
@@ -254,7 +261,7 @@ a{
 #hero .wrapper .banner img{
     border-radius: 28px;
      box-shadow: 5px 3px 20px #000000b8;
-     height: 300px;
+     height: 250px;
      opacity: 0;
 }
 #hero .wrapper .greenBtn:hover{
@@ -1451,6 +1458,12 @@ section#mission-vision > .wrapper > .container > .circle:hover{
 }
 
 
+.content-container{
+  flex-direction: column;
+  margin-top: 150px!important;
+}
+
+
     }
 
 
@@ -1618,6 +1631,193 @@ transition: all 0.4s ease-out 1s;
   transition: opacity 0.4s ease-in-out 1.4s;
 }
 
+#navbar-section {
+  font-family: "Poppins", sans-serif;
+}
+
+#navbar-section nav {
+  display: flex;
+  background: linear-gradient(90deg, #111, #333);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+#navbar-section nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 25px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+#navbar-section nav a:hover {
+  color: #00b4d8;
+}
+
+.content-container {
+  display: flex;
+  align-items: stretch; /* ensures both sides are equal in height */
+  gap: 40px;
+  /* margin-top: 30px; */
+  padding: 30px;
+}
+.left-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.left-image img {
+
+  width: 100%;
+  height: 70%;
+  border-radius: 12px;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* Container for image + content */
+.dynamic-content {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  height: 70%;
+  /* overflow: hidden; */
+}
+
+.left-image {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow: hidden; hide zoom overflow */
+  cursor: crosshair;
+}
+
+.left-image img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.2s ease, transform-origin 0.2s ease;
+}
+
+.zoom-controls {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.zoom-controls button {
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.zoom-controls button:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Right content section */
+.right-content {
+  flex: 1;
+  overflow: auto; /* enables scroll for long tables */
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  max-height: 100%;
+}
+
+/* Smooth scroll and look */
+.right-content::-webkit-scrollbar {
+  width: 8px;
+}
+.right-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+/* Make tables responsive inside content */
+.right-content table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block; /* allows horizontal scroll if wide */
+}
+
+.right-content th,
+.right-content td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.right-content th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+
+.left-image img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.right-content {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers text vertically */
+  height:70vh ;
+}
+
+.right-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.right-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.right-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.right-content p {
+  line-height: 1.6;
+}
 
 
 

@@ -32,7 +32,7 @@
         </div>
 
         <div class="links" id="nav-links">
-     <a  href="index.html">Home</a>
+            <a  href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="products.html">Products</a>
             <a href="services.html">Services</a>
@@ -44,25 +44,34 @@
     </div>
 </section>
 
- <section id="topselling" class="element" style="padding-top: 120px;">
-   <h1 class="title">Top Selling</h1>
-  <div class="wrapper">
-    <div class="content">
-      <h1 class="up">Sparrow</h1>
-      <h1 class="down">Sparrow</h1>
-      <h1 class="up">Sparrow</h1>
-      <h1 class="down">Sparrow</h1>
-      <h1 class="up">Sparrow</h1>
-    </div>
-    <div class="photos">
+<section id="navbar-section" style="margin-top: 90px;">
+  <nav id="newnav" style="position: fixed; z-index: 999;top: 90px;left: 0;right: 0;padding: 15px;margin: 2px 15px;">
+    <a data-content="features">Features</a>
+    <a data-content="tech">Technical Specifications</a>
+    <a data-content="pinout">Pin Out</a>
+    <a data-content="pinconfig">Pin Configuration</a>
 
-      <img src="images/sparrow_rem.png" />
-      <img src="images/sparrow_rem.png" />
-    </div>
 
+     <!-- Hamburger Icon -->
+        <div class="hamburger" id="newham">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+  </nav>
+
+  <div class="content-container" style="margin-top: 120px;">
+    <div class="left-image">
+      <img id="dynamicImage" src="images/board1.jpg" alt="Dynamic Image">
+       <div class="zoom-controls">
+    <button id="zoomIn">+</button>
+    <button id="zoomOut">−</button>
   </div>
-  <a href="sparrow.html">Know More <i class="fas fa-arrow-right"></i></a>
- </section>
+    </div>
+    <div class="right-content" id="dynamicContent"></div>
+  </div>
+</section>
+
 
 
     
