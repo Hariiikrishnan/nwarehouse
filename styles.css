@@ -200,7 +200,7 @@ a{
         animation: slideDown 0.3s ease forwards;
     }
     #newnav.active {
-        z-index: 99999;
+        z-index: 997;
         display: flex;
         animation: slideDown 0.3s ease forwards;
     }

@@ -14,7 +14,7 @@ const links2 = newnav.querySelectorAll('a');
 
 links2.forEach(link => {
     link.addEventListener('click', () => {
-        console.log("Iterating");
+       
         // Remove active from all links
         links2.forEach(l => l.classList.remove('active'));
 
@@ -24,7 +24,7 @@ links2.forEach(link => {
         // (Optional) close the menu after clicking a link
         menuCont.classList.remove('active');
         newnav.classList.remove('active');
-        console.log("removed");
+        
     });
 });
 
