@@ -262,6 +262,7 @@ a{
     font-size: 20px;
     color: #262626;
     margin-bottom:30px;
+     
 }
 #hero .wrapper .btns{
   display: flex;
@@ -307,6 +308,18 @@ a{
 #hero .wrapper .whiteBtn:hover{
  background-color:#0404043c;
  color: white;
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 
@@ -779,7 +792,7 @@ section#mission-vision > .wrapper > .container .circle .tam{
       padding: 15px;
       background-size: cover;
       background-position: center;
-       box-shadow: inset 0 -80px 60px rgba(0, 0, 0, 0.8);
+       box-shadow:inset 0 -40px 10px rgb(47 172 86);
       transition: transform 0.3s ease;
     }
 
@@ -799,8 +812,8 @@ section#mission-vision > .wrapper > .container .circle .tam{
     #products .card::after {
      content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+  inset: 0; 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.32), rgba(0,0,0,0));
     }
 
   #products .card p {
@@ -1538,6 +1551,7 @@ transition: opacity 0.5s ease-out 0.3s;
 }
 #hero.visible .wrapper .cont p{
 opacity: 1;
+animation: blink-animation 1.5s ease-in infinite 0.7s;
 transition: opacity 0.5s ease-out 0.7s;
 }
 #hero.visible .wrapper .cont a{
