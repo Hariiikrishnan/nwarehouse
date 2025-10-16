@@ -1,15 +1,19 @@
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
+
+
 // Toggle menu open/close
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');  // Animate hamburger to X
     navLinks.classList.toggle('active');   // Show/hide links
 });
 
+
+
 // Add active class to clicked nav link
 const links = navLinks.querySelectorAll('a');
-console.log(links);
+
 links.forEach(link => {
     link.addEventListener('click', () => {
         // Remove active from all links
@@ -241,48 +245,3 @@ const dynamicImage = document.getElementById('dynamicImage');
       }, 50);
     }, 300);
   }
-
-  // Event listeners for hover
-  document.querySelectorAll('#navbar-section nav a').forEach(link => {
-    link.addEventListener('mouseenter', e => {
-      const key = e.target.dataset.content;
-      animateChange(key);
-    });
-  });
-
-  // Load 'features' section initially
-  window.addEventListener('DOMContentLoaded', () => {
-    animateChange('features');
-  });
-
-
-  let currentScale = 1;
-const SCALE_STEP = 0.1;
-const MAX_SCALE = 2;
-const MIN_SCALE = 1; // minimum 1x zoom
-
-// Zoom In/Out buttons
-document.getElementById('zoomIn').addEventListener('click', () => {
-  if (currentScale < MAX_SCALE) currentScale += SCALE_STEP;
-  dynamicImage.style.transform = `scale(${currentScale})`;
-});
-
-document.getElementById('zoomOut').addEventListener('click', () => {
-  if (currentScale > MIN_SCALE) currentScale -= SCALE_STEP;
-  dynamicImage.style.transform = `scale(${currentScale})`;
-});
-
-// Mouse move effect
-dynamicImage.addEventListener('mousemove', (e) => {
-  const rect = dynamicImage.getBoundingClientRect();
-  const x = ((e.clientX - rect.left) / rect.width) * 100;
-  const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-  dynamicImage.style.transformOrigin = `${x}% ${y}%`;
-  dynamicImage.style.transform = `scale(${currentScale})`;
-});
-
-// Reset transform-origin when mouse leaves
-dynamicImage.addEventListener('mouseleave', () => {
-  dynamicImage.style.transformOrigin = 'center center';
-});

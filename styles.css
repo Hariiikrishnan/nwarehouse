@@ -134,17 +134,28 @@ a{
     border-radius: 2px;
     transition: all 0.3s ease;
 }
-
+#menuCont{
+  display: none!important;
+}
 /* Hamburger Animation (toggle to X) */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+  opacity: 0;
 }
 
 .hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+#menuCont.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#menuCont.active span:nth-child(2) {
+    opacity: 0;
+}
+#menuCont.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
@@ -169,10 +180,36 @@ a{
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
+    #newnav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgb(255, 255, 255);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        gap: 15px;
+        padding: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
     #nav .links.active {
         display: flex;
         animation: slideDown 0.3s ease forwards;
+    }
+    #newnav.active {
+        z-index: 99999;
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+    #newnav.active a{
+       display: block!important;
+       color: black;
+    }
+    #newnav.active a.active{
+       color: blue;
     }
 
     @keyframes slideDown {
@@ -1344,7 +1381,10 @@ section#mission-vision > .wrapper > .container .circle .tam{
        }
 #hero .wrapper{
     flex-direction: column;
-    padding: 140px 60px 70px 60px;
+    padding: 140px 30px 70px 30px;
+}
+#hero .wrapper .cont,#hero .wrapper .banner{
+    padding: 0px;
 }
 #hero .wrapper .banner img{
     height: 200px;
@@ -1460,10 +1500,25 @@ section#mission-vision > .wrapper > .container > .circle:hover{
 
 .content-container{
   flex-direction: column;
-  margin-top: 150px!important;
+  /* margin-top: 150px!important; */
 }
 
 
+#navbar-section nav a{
+  display: none;
+}
+
+
+#newham{
+  display: flex!important;
+  color: white;
+}
+#menuCont{
+  display: flex!important;
+}
+#newham span{
+  background-color: white;
+}
     }
 
 
